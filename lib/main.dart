@@ -91,9 +91,6 @@ class _MyAppState extends State<MyApp> {
 
   }
 
-  // void _recordEvent() async {
-  // }
-
   void _fetchTodos() async {
     try {
       _todos = await Amplify.DataStore.query(Todo.classType, sortBy: [Todo.CREATEDAT.ascending()]);
@@ -112,8 +109,7 @@ class _MyAppState extends State<MyApp> {
       Todo newTodo = oldTodo.copyWith(id: oldTodo.id, status: todo.status == null ? true : !todo.status);
 
       await Amplify.DataStore.save(newTodo);
-      _fetchTodos();
-      // print(_todos);
+      this._fetchTodos();
     } catch (e) {
       print("Query failed: ");
       print(e);
@@ -124,8 +120,7 @@ class _MyAppState extends State<MyApp> {
       Todo newTodo = new Todo();
 
       await Amplify.DataStore.save(newTodo.copyWith(name: newTodoController.text.trim()));
-      _fetchTodos();
-      // print(_todos);
+      this._fetchTodos();
     } catch (e) {
       print("Query failed: ");
       print(e);
@@ -135,11 +130,8 @@ class _MyAppState extends State<MyApp> {
     try {
       Todo oldTodo = (await Amplify.DataStore.query(Todo.classType,
           where: Todo.ID.eq(todo.id)))[0];
-      // Todo newTodo = oldTodo.copyWith(id: oldTodo.id, status: !todo.status);
-
       await Amplify.DataStore.delete(oldTodo);
-      // _fetchTodos();
-      // print(_todos);
+      this._fetchTodos();
     } catch (e) {
       print("Query failed: ");
       print(e);
@@ -154,22 +146,15 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         _loggedIn = false;
       });
-      // globals.isLoggedIn = false;
-      // print('this._loggedOut' + globals.isLoggedIn.toString());
     } on AuthError catch (e) {
       print(e);
     }
   }
   void onSignInSuccess() {
-    // Navigator.pushAndRemoveUntil(context,
-    //     MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
     setState(() {
       _loggedIn = true;
     });
     this._fetchTodos();
-
-    // globals.isLoggedIn = true;
-    // print('this._loggedIn' + globals.isLoggedIn.toString());
   }
   void _updateTodos() async {
     this._todos = new List<Todo>();
@@ -188,19 +173,7 @@ class _MyAppState extends State<MyApp> {
                 child: Column (
                     children: <Widget>[
                       const Padding(padding: EdgeInsets.all(5.0)),
-                      // RaisedButton(
-                      //   onPressed: _updateTodos,
-                      //   child: const Text('Update'),
-                      // ),
-                      // openDialogButton("Sign In", onSignInSuccess, SignInView()),
-                      // todoWidgets(_todos),
                       renderLogin(),
-                      // if (globals.isLoggedIn)
-                      //   todoWidgets(_todos),
-                      // RaisedButton(
-                      //   onPressed: _signOut,
-                      //   child: const Text('Sign Out'),
-                      // ),
                     ]
                 ),
               )
@@ -267,14 +240,12 @@ class _MyAppState extends State<MyApp> {
 
   Widget todoWidgets(List<Todo> todos)
   {
-    // return new Row(children: todos.map((todo) => new Text(todo.name)).toList());
-    // print('render todoWidgets' + todos.toString());
     return new Column(children: [
       for (var todo in todos.reversed ) Row(children: [
         Checkbox(
           value: todo.status != null ? todo.status : false,
           onChanged: (value) {
-            _checkTodo(todo);
+            this._checkTodo(todo);
           },
         ),
         Expanded(
@@ -288,7 +259,7 @@ class _MyAppState extends State<MyApp> {
               color: Colors.blue,
               tooltip: 'Delete Todo',
             onPressed: () {
-              _deleteTodo(todo);
+              this._deleteTodo(todo);
             }
           )
         )

@@ -49,12 +49,6 @@ const amplifyconfig = ''' {
                         "AuthMode": "AMAZON_COGNITO_USER_POOLS",
                         "ClientDatabasePrefix": "myamplifyproject_AMAZON_COGNITO_USER_POOLS"
                     }
-                },
-                "S3TransferUtility": {
-                    "Default": {
-                        "Bucket": "myamplifyproject185e7f83468a4b20a7fc6a5f92a3406111003-dev",
-                        "Region": "us-east-1"
-                    }
                 }
             }
         }
