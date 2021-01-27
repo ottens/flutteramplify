@@ -1,10 +1,10 @@
 {
-  "AppSyncApiName": "myamplifyproject",
+  "AppSyncApiName": "flutteramplify",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authmyamplifyproject846efcd9",
+      "authflutteramplify846efcd9",
       "Outputs.UserPoolId"
     ]
   }
