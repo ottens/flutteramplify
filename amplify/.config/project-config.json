@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "myAmplifyProject",
+  "projectName": "flutterAmplify",
   "version": "3.0",
   "frontend": "flutter",
   "flutter": {
