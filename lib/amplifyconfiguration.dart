@@ -22,5 +22,14 @@ const amplifyconfig = ''' {
                 }
             }
         }
-    }
+    },
+    "storage": {		
+         "plugins": {		
+             "awsS3StoragePlugin": {		
+                 "bucket": "flutteramplify185e7f83468a4b20a7fc6a5f92a3406111003-dev",		
+                 "region": "us-east-1",		
+                 "defaultAccessLevel": "guest"		
+             }		
+         }		
+     }
 }''';
