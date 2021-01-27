@@ -1,0 +1,9 @@
+type Todo @model @auth(rules: [{ allow: owner, operations: [create, read, update, delete] }]) {
+  id: ID!
+  name: String!
+  description: String
+  status: Boolean
+  createdAt: AWSDateTime
+  hasPhoto: Boolean
+  fileName: String
+}

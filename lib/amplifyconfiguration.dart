@@ -6,7 +6,7 @@ const amplifyconfig = ''' {
             "awsAPIPlugin": {
                 "myamplifyproject": {
                     "endpointType": "GraphQL",
-                    "endpoint": "https://fxumj75lnvhl3onfy66rkctsn4.appsync-api.us-east-1.amazonaws.com/graphql",
+                    "endpoint": "https://7slzs4ldvvgl7caglfpft735di.appsync-api.us-east-1.amazonaws.com/graphql",
                     "region": "us-east-1",
                     "authorizationType": "AMAZON_COGNITO_USER_POOLS"
                 }
@@ -24,16 +24,16 @@ const amplifyconfig = ''' {
                 "CredentialsProvider": {
                     "CognitoIdentity": {
                         "Default": {
-                            "PoolId": "us-east-1:ae82769d-d4d4-4976-9530-1b5adb3d65f3",
+                            "PoolId": "us-east-1:dbb3af2a-c28b-426e-97a7-e670060e9eb3",
                             "Region": "us-east-1"
                         }
                     }
                 },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "us-east-1_841pvxGaW",
-                        "AppClientId": "4un9vo8h4fa94rbgubmn78uaps",
-                        "AppClientSecret": "aa68blom014dhrp23cotavg5tuqp264oqgrofb10p3mi9p5jjuk",
+                        "PoolId": "us-east-1_Kzf2HQjMc",
+                        "AppClientId": "28csktqaqa46t5o6h4lq1lsdpb",
+                        "AppClientSecret": "1ij9ipqjqioqs619c88v7u0mnuq2gb5h4lr28hu8hjea40ev2ckk",
                         "Region": "us-east-1"
                     }
                 },
@@ -44,7 +44,7 @@ const amplifyconfig = ''' {
                 },
                 "AppSync": {
                     "Default": {
-                        "ApiUrl": "https://fxumj75lnvhl3onfy66rkctsn4.appsync-api.us-east-1.amazonaws.com/graphql",
+                        "ApiUrl": "https://7slzs4ldvvgl7caglfpft735di.appsync-api.us-east-1.amazonaws.com/graphql",
                         "Region": "us-east-1",
                         "AuthMode": "AMAZON_COGNITO_USER_POOLS",
                         "ClientDatabasePrefix": "myamplifyproject_AMAZON_COGNITO_USER_POOLS"
